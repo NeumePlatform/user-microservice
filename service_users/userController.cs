@@ -3,26 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using userBusiness.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace service_users
 {
     [Route("api/[controller]")]
-    public class UserController : Controller
+    public class userController : Controller
     {
+        private readonly IUser _user;
+
+        public userController(IUser user)
+        {
+            _user = user;
+        }
+
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IUser> Get()
         {
-            return new string[] { "value1", "value2" };
+            return null;
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{userid}")]
+        public async Task<IUser> Get(string userid)
         {
-            return "value";
+            IUser user = await _user.GetUser(userid);
+
+            return user;
         }
 
         // POST api/values
