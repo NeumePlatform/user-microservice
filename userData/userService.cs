@@ -39,7 +39,15 @@ namespace userData
             return user;
         }
 
-        
+        public async Task<UpdateResult> UpdateUserSubscription(string userid)
+        {
+            var usersCollection = db.ConnectToMongo<User>(userCollection);
+            var filter = Builders<User>.Filter.Eq("user_id", userid);
+
+            var update = Builders<User>.Update.Set("is_premium", true);
+            
+            return await usersCollection.UpdateOneAsync(filter, update);
+        }
     }
 }
 

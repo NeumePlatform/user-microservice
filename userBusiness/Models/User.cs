@@ -1,6 +1,7 @@
 ﻿using System;
 using userContract.Interfaces;
 using userContract.DTO;
+using MongoDB.Driver;
 
 namespace userBusiness.Models
 {
@@ -35,6 +36,11 @@ namespace userBusiness.Models
             IUser user = new User(userDto);
 
             return user;
+        }
+
+        public async Task<UpdateResult> UpdateUserSubscription(string userid)
+        {
+            return await _userService.UpdateUserSubscription(userid);
         }
     }
 }

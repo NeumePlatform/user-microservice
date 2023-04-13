@@ -1,4 +1,6 @@
 ﻿using System;
+using MongoDB.Driver;
+
 namespace userBusiness.Models
 {
 	public interface IUser
@@ -10,6 +12,9 @@ namespace userBusiness.Models
 		public bool userIsPremium { get; set; }
 
 		public Task<IUser> GetUser(string userid);
-	}
+
+		public Task<UpdateResult> UpdateUserSubscription(string userid);
+
+    }
 }
 

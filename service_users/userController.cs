@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Amazon.Runtime.Internal;
 using Microsoft.AspNetCore.Mvc;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using service_users.DTO;
 using userBusiness.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,6 +18,7 @@ namespace service_users
     public class userController : Controller
     {
         private readonly IUser _user;
+        
 
         public userController(IUser user)
         {
@@ -28,7 +34,7 @@ namespace service_users
 
         // GET api/values/5
         [HttpGet("{userid}")]
-        public async Task<IUser> Get(string userid)
+        public async Task<IUser> GetUser(string userid)
         {
             IUser user = await _user.GetUser(userid);
 
@@ -37,8 +43,9 @@ namespace service_users
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<IActionResult> Post([FromBody]string value)
         {
+            return Ok();
         }
 
         // PUT api/values/5
@@ -52,6 +59,20 @@ namespace service_users
         public void Delete(int id)
         {
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> Post([FromBody] IEnumerable<User> request)
+        //{
+        //    if (request == null)
+        //    {
+                
+        //        return BadRequest();
+        //    }
+
+        //    await _busControl.SendAsync("transactions", request);
+
+        //    return Ok();
+        //}
     }
 }
 
