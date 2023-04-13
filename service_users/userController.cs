@@ -59,20 +59,6 @@ namespace service_users
         public void Delete(int id)
         {
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Post([FromBody] IEnumerable<User> request)
-        //{
-        //    if (request == null)
-        //    {
-                
-        //        return BadRequest();
-        //    }
-
-        //    await _busControl.SendAsync("transactions", request);
-
-        //    return Ok();
-        //}
     }
 }
 
