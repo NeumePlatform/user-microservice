@@ -27,7 +27,7 @@
     <ProjectReference Include="..\userBusiness\userBusiness.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="TransactionModel\TransactionModel.csproj">
+    <ProjectReference Include="..\TransactionModel\TransactionModel.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
