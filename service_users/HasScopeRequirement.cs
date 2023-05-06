@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace service_users;
 
-public class HasScopeHandler : IAuthorizationRequirement
+public class HasScopeRequirement : IAuthorizationRequirement
 {
     public string Issuer { get; }
     public string Scope { get; }

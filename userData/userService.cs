@@ -33,7 +33,6 @@ namespace userData
                 user.display_name = listUser.display_name;
                 user.email = listUser.email;
                 user.is_premium = listUser.is_premium;
-
             }
 
             return user;

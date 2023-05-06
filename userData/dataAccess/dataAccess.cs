@@ -5,7 +5,8 @@ namespace userData.dataAccess
 {
 	public class dataAccess
 	{
-		private const string connectionString = "mongodb://localhost:27016";
+        //private const string connectionString = "mongodb://localhost:27016";
+        private const string connectionString = "mongodb+srv://stefandeboer:kfY4RyWzQNR1axm0@cluster0.7dakmvs.mongodb.net/?retryWrites=true&w=majority";
 		private const string databaseName = "neume-users";
 		private const string userCollection = "users";
 

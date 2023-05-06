@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Amazon.Runtime.Internal;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -34,11 +35,12 @@ namespace service_users
 
         // GET api/values/5
         [HttpGet("{userid}")]
-        public async Task<IUser> GetUser(string userid)
+        [Authorize("read:user")]
+        public async Task<IActionResult> GetUser(string userid)
         {
             IUser user = await _user.GetUser(userid);
 
-            return user;
+            return Ok(user);
         }
 
         // POST api/values
