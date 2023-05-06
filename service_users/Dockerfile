@@ -11,7 +11,7 @@ COPY ["service_users/service_users.csproj", "service_users/"]
 COPY ["userBusiness/userBusiness.csproj", "userBusiness/"]
 COPY ["userData/userData.csproj", "userData/"]
 COPY ["userContract/userContract.csproj", "userContract/"]
-COPY ["../../service_billing/TransactionModel/TransactionModel.csproj", "../../service_billing/TransactionModel/"]
+COPY ["TransactionModel/TransactionModel.csproj", "TransactionModel/"]
 RUN dotnet restore "service_users/service_users.csproj"
 COPY . .
 WORKDIR "/src/service_users"
