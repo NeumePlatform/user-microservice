@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neume-user-service-deployment
+  labels:
+    app: neume-user-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: neume-user-service-pod
+  template:
+    metadata:
+      labels:
+        app: neume-user-service-pod
+    spec:
+      containers:
+        - name: neume-user-service-container
+          image: neume.azurecr.io/neume:v2
+          ports:
+            - containerPort: 80
+      
