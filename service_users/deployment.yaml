@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: neume-user-service-container
-          image: neume.azurecr.io/neume:v2
+          image: neume.azurecr.io/neume-user-service:latest
           ports:
             - containerPort: 80
       
